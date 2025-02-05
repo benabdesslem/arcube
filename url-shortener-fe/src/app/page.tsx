@@ -20,7 +20,7 @@ export default function Home() {
             return;
         }
 
-        if (isValidUrl(inputUrl)) {
+        if (!isValidUrl(inputUrl)) {
             setError("Please enter a valid URL");
             return;
         }
