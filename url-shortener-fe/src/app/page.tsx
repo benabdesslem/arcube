@@ -3,7 +3,7 @@
 import {useState} from "react";
 import {QRCodeCanvas} from 'qrcode.react';
 import {ExternalLink, Link, QrCode, Share, Trash2, WandSparkles} from "lucide-react";
-import CopyButton from "@/app/components/ CopyButton";
+import CopyButton from "@/app/components/CopyButton";
 import {motion, AnimatePresence} from "framer-motion";
 import {isValidUrl} from "@/app/utils/urlValidator";
 
