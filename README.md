@@ -106,7 +106,7 @@ Unit tests are implemented to ensure service reliability:
 ## Deployment
 
 The application is deployed on a **VPS** and is accessible via this link:
-👉 [Application Link](http://vps-569a04f1.vps.ovh.net/)
+👉 [https://vps-569a04f1.vps.ovh.net/](https://vps-569a04f1.vps.ovh.net/)
 
 ---
 
