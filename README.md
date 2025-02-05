@@ -78,10 +78,14 @@ docker-compose up -d
 
 ## Unit Tests
 
-Unit tests are implemented to ensure service reliability:
+### Backend Unit Tests (Jest)
 
-- **`encryption.service.spec.ts`**: Verifies URL encryption.
-- **`url.service.spec.ts`**: Tests URL shortening and retrieval.
+- **`encryption.service.spec.ts`**: Validates URL encryption functionality.
+- **`url.service.spec.ts`**: Tests URL shortening and retrieval logic.
+
+### Frontend End-to-End Tests (Vitest)
+
+- **`page.test.tsx`**: Ensures correct rendering and interactions on the page.
 
 ---
 
@@ -105,8 +109,15 @@ Unit tests are implemented to ensure service reliability:
 
 ## Deployment
 
-The application is deployed on a **VPS** and is accessible via this link:
-👉 [https://vps-569a04f1.vps.ovh.net/](https://vps-569a04f1.vps.ovh.net/)
+The application is hosted on a **VPS** and accessible at: ⚡ [https://vps-569a04f1.vps.ovh.net/](https://vps-569a04f1.vps.ovh.net/)⚡
+
+### Stack & Infrastructure
+- **Docker & Docker Compose** for containerized deployment.
+- **Nginx** as a reverse proxy.
+- **Certbot (Let's Encrypt)** for automated SSL.
+- **Isolated Docker network** for secure inter-service communication.
+- **Persistent volumes** for data storage.
+- **Centralized logging & monitoring** via Docker logging drivers.
 
 ---
 
