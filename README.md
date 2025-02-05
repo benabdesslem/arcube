@@ -4,8 +4,8 @@
 
 Before starting the application, make sure you have:
 
-- **Node.js** installed
-- **MongoDB** installed locally or as a Docker container
+- **Node.js**: Version **22 or later** ([Download Node.js](https://nodejs.org/))
+- **MongoDB**: Version **8 or later**, installed locally or running as a Docker container
 
 ## Start MongoDB Database
 
