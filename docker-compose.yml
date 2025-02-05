@@ -1,0 +1,54 @@
+version: '3.8'
+
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    networks:
+      - app-network
+
+  url-shortener-be:
+    build:
+      context: ./url-shortener-be
+      dockerfile: Dockerfile
+    container_name: url-shortener-be
+    ports:
+      - "4000:3000"
+    depends_on:
+      - mongo
+    environment:
+      NODE_ENV: production
+      MONGODB_URI: mongodb://root:root@mongo:27017/url-shortener?authSource=admin
+      NEXT_PUBLIC_FRONTEND_URL: http://localhost:3000
+      PORT: 3000
+    networks:
+      - app-network
+
+  url-shortener-fe:
+    build:
+      context: ./url-shortener-fe
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: http://url-shortener-be:3000
+    container_name: url-shortener-fe
+    ports:
+      - "3000:3000"
+    depends_on:
+      - url-shortener-be
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge
